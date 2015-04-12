@@ -43,10 +43,6 @@ class MasterViewController: UITableViewController {
             let controllers = split.viewControllers
             self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
         }
-        
-       // let docPath = NSSearchPathDirectoryInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
-        //let docPath = NSSearchPathDirectory( .DocumentDirectory)[0] as NSString
-       // let path = NSBundle.mainBundle().pathForResource("filename", ofType: "fileExt")
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,11 +50,12 @@ class MasterViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
- ///   func insertNewObject(sender: AnyObject) {
- ///       objects.insert(NSDate(), atIndex: 0)
- ///       let indexPath = NSIndexPath(forRow: 0, inSection: 0)
- ///       self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
- ///   }
+    func insertNewObject(sender: AnyObject) {
+        let contact = Contact(name: "Mystery Man", phone: "432-555-2298", title: "Who knows?!", email: "mm@unknonwn.com", twitterId: "???")
+        contacts.insert(contact, atIndex: 0)
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+    }
 
     // MARK: - Segues
 

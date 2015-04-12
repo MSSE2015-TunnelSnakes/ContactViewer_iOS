@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AA0E93F1ADA85A300257146 /* fmdb in Resources */ = {isa = PBXBuildFile; fileRef = 0AA0E93E1ADA85A300257146 /* fmdb */; };
+		0AA0E9411ADA85CB00257146 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0E9401ADA85CB00257146 /* DBHelper.swift */; };
 		0ACA40F11AD9A7D800F9111D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA40F01AD9A7D800F9111D /* AppDelegate.swift */; };
 		0ACA40F31AD9A7D800F9111D /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA40F21AD9A7D800F9111D /* MasterViewController.swift */; };
 		0ACA40F51AD9A7D800F9111D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA40F41AD9A7D800F9111D /* DetailViewController.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0AA0E93E1ADA85A300257146 /* fmdb */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fmdb; sourceTree = "<group>"; };
+		0AA0E9401ADA85CB00257146 /* DBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		0ACA40EB1AD9A7D800F9111D /* ContactViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ACA40EF1AD9A7D800F9111D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0ACA40F01AD9A7D800F9111D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 		0ACA40ED1AD9A7D800F9111D /* ContactViewer */ = {
 			isa = PBXGroup;
 			children = (
+				0AA0E93E1ADA85A300257146 /* fmdb */,
 				0ACA40F01AD9A7D800F9111D /* AppDelegate.swift */,
 				0ACA40F21AD9A7D800F9111D /* MasterViewController.swift */,
 				0ACA40F41AD9A7D800F9111D /* DetailViewController.swift */,
@@ -95,6 +100,7 @@
 				0ACA41121AD9A83500F9111D /* Contact.swift */,
 				0ACA41141AD9BDC400F9111D /* EditViewController.swift */,
 				0ACA41161AD9BFD000F9111D /* EditViewController.xib */,
+				0AA0E9401ADA85CB00257146 /* DBHelper.swift */,
 			);
 			path = ContactViewer;
 			sourceTree = "<group>";
@@ -204,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AA0E93F1ADA85A300257146 /* fmdb in Resources */,
 				0ACA41171AD9BFD000F9111D /* EditViewController.xib in Resources */,
 				0ACA40F81AD9A7D800F9111D /* Main.storyboard in Resources */,
 				0ACA40FD1AD9A7D800F9111D /* LaunchScreen.xib in Resources */,
@@ -226,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0ACA41151AD9BDC400F9111D /* EditViewController.swift in Sources */,
+				0AA0E9411ADA85CB00257146 /* DBHelper.swift in Sources */,
 				0ACA41131AD9A83500F9111D /* Contact.swift in Sources */,
 				0ACA40F51AD9A7D800F9111D /* DetailViewController.swift in Sources */,
 				0ACA40F31AD9A7D800F9111D /* MasterViewController.swift in Sources */,
@@ -427,6 +435,7 @@
 				0ACA410E1AD9A7D800F9111D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0ACA410F1AD9A7D800F9111D /* Build configuration list for PBXNativeTarget "ContactViewerTests" */ = {
 			isa = XCConfigurationList;
@@ -435,6 +444,7 @@
 				0ACA41111AD9A7D800F9111D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
