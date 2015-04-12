@@ -45,6 +45,7 @@ class MasterViewController: UITableViewController {
         }
         
        // let docPath = NSSearchPathDirectoryInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+        //let docPath = NSSearchPathDirectory( .DocumentDirectory)[0] as NSString
        // let path = NSBundle.mainBundle().pathForResource("filename", ofType: "fileExt")
     }
 
@@ -111,11 +112,10 @@ class MasterViewController: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        let ctrl = EditViewController(nibName: "EditViewController", bundle: nil)
-        self.navigationController?.pushViewController(ctrl, animated: true)
-        
-    }
+    
+   // override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+   //     let ctrl = EditViewController(nibName: "EditViewController", bundle: nil)
+   //     self.navigationController?.pushViewController(ctrl, animated: true)
+   // }
 }
 
