@@ -9,11 +9,48 @@
 import Foundation
 
 class DBHelper {
+    func setupDatabase() {
+        // NOTE: KEV - It seems wrong that we always calculate folder locations, open, then close the db..
+        let documentsFolder:String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+        let path = documentsFolder.stringByAppendingPathComponent("ContactViewer.sqlite")
+        
+        let database = FMDatabase(path: path)
+        
+        if (!database.open()) {
+            println("Unable to open database")
+            return
+        }
+        
+        database.executeStatements("CREATE TABLE IF NOT EXISTS Contacts (INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT, phone TEXT, " +
+            "title TEXT, email TEXT, twitterId TEXT);")
+        database.close()
+    }
     
-    func aMethod() {
+    func addUpdateContact(contact: Contact) {
+        let documentsFolder:String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+        let path = documentsFolder.stringByAppendingPathComponent("ContactViewer.sqlite")
+        
+        let database = FMDatabase(path: path)
+        
+        if (!database.open()) {
+            println("Unable to open database")
+            return
+        }
+        
+        if (contact.id <= 0) {
+            database.executeStatements("INSERT INTO Contacts (name, phone, title, email, twitterId) VALUES ( \(contact.name), \(contact.phone), \(contact.title), \(contact.email) \(contact.twitterId) );")
+        } else {
+            database.executeStatements("INSERT INTO Contacts (id, name, phone, title, email, twitterId) VALUES (\(contact.id), \(contact.name), \(contact.phone), \(contact.title), \(contact.email) \(contact.twitterId) );")
+        }
+
+    }
+    
+   // TODO func getContacts() ->
+    
+    func dummyFunction() {
         
         let documentsFolder:String = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
-        let path = documentsFolder.stringByAppendingPathComponent("test.sqlite")
+        let path = documentsFolder.stringByAppendingPathComponent("ContactViewer.sqlite")
         
         let database = FMDatabase(path: path)
         
