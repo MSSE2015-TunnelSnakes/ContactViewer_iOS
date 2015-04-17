@@ -10,7 +10,7 @@ import Foundation
 
 class Contact: NSObject {
     
-    var id:Int
+    var id:Int32
     var name:String
     var phone:String
     var title:String
@@ -26,7 +26,7 @@ class Contact: NSObject {
         self.twitterId = twitterId;
     }
     
-    func updateId(id:Int) {
+    func updateId(id:Int32) {
         self.id = id;
     }
 }

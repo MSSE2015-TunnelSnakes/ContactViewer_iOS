@@ -10,28 +10,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContactViewer/DBHelper.swift"
-            timestampString = "450666452.988461"
+            timestampString = "450677214.198128"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "dummyFunction()"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "getContacts()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ContactViewer/MasterViewController.swift"
+            timestampString = "450980569.911157"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "awakeFromNib()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContactViewer/DBHelper.swift"
-            timestampString = "450666452.988461"
+            timestampString = "450982067.351522"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "dummyFunction()"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "getContact(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -31,10 +31,13 @@ class MasterViewController: UITableViewController {
         contacts.append(contact2)
         contacts.append(contact3)
         
-        // This looks like DBHelper is a static class, is that correct?
-        // DBHelper.setupDatabase()
-        // DBHelper.addUpdateContact(contact1)
-        
+        // TEMP Database testing code
+        var dbHelper = DBHelper()
+        dbHelper.setupDatabase()
+        dbHelper.addUpdateContact(contact1)
+        dbHelper.addUpdateContact(contact2)
+        dbHelper.addUpdateContact(contact3)
+        var temp = dbHelper.getContacts()
     }
 
     override func viewDidLoad() {
