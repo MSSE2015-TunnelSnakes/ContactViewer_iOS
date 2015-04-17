@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0AA0E9411ADA85CB00257146 /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA0E9401ADA85CB00257146 /* DBHelper.swift */; };
+		0AA3E41F1AE1CE7D00C6B8FD /* trogdor.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AA3E41E1AE1CE7D00C6B8FD /* trogdor.png */; };
 		0ABEE89C1ADC8ED80035013D /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABEE8921ADC8ED80035013D /* FMDatabase.m */; };
 		0ABEE89D1ADC8ED80035013D /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABEE8941ADC8ED80035013D /* FMDatabaseAdditions.m */; };
 		0ABEE89E1ADC8ED80035013D /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABEE8961ADC8ED80035013D /* FMDatabasePool.m */; };
@@ -22,8 +23,6 @@
 		0ACA40FD1AD9A7D800F9111D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ACA40FB1AD9A7D800F9111D /* LaunchScreen.xib */; };
 		0ACA41091AD9A7D800F9111D /* ContactViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA41081AD9A7D800F9111D /* ContactViewerTests.swift */; };
 		0ACA41131AD9A83500F9111D /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA41121AD9A83500F9111D /* Contact.swift */; };
-		0ACA41151AD9BDC400F9111D /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACA41141AD9BDC400F9111D /* EditViewController.swift */; };
-		0ACA41171AD9BFD000F9111D /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ACA41161AD9BFD000F9111D /* EditViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		0AA0E9401ADA85CB00257146 /* DBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
+		0AA3E41E1AE1CE7D00C6B8FD /* trogdor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trogdor.png; sourceTree = "<group>"; };
 		0ABEE8911ADC8ED80035013D /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		0ABEE8921ADC8ED80035013D /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		0ABEE8931ADC8ED80035013D /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -72,8 +72,6 @@
 		0ACA41071AD9A7D800F9111D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0ACA41081AD9A7D800F9111D /* ContactViewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewerTests.swift; sourceTree = "<group>"; };
 		0ACA41121AD9A83500F9111D /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
-		0ACA41141AD9BDC400F9111D /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
-		0ACA41161AD9BFD000F9111D /* EditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,8 +159,6 @@
 				0ACA40FB1AD9A7D800F9111D /* LaunchScreen.xib */,
 				0ACA40EE1AD9A7D800F9111D /* Supporting Files */,
 				0ACA41121AD9A83500F9111D /* Contact.swift */,
-				0ACA41141AD9BDC400F9111D /* EditViewController.swift */,
-				0ACA41161AD9BFD000F9111D /* EditViewController.xib */,
 				0AA0E9401ADA85CB00257146 /* DBHelper.swift */,
 				0ABEE8A11ADC8F4F0035013D /* ContactViewer-Bridging-Header.h */,
 			);
@@ -172,6 +168,7 @@
 		0ACA40EE1AD9A7D800F9111D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0AA3E41E1AE1CE7D00C6B8FD /* trogdor.png */,
 				0ACA40EF1AD9A7D800F9111D /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -332,10 +329,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0ACA41171AD9BFD000F9111D /* EditViewController.xib in Resources */,
 				0ACA40F81AD9A7D800F9111D /* Main.storyboard in Resources */,
 				0ACA40FD1AD9A7D800F9111D /* LaunchScreen.xib in Resources */,
 				0ACA40FA1AD9A7D800F9111D /* Images.xcassets in Resources */,
+				0AA3E41F1AE1CE7D00C6B8FD /* trogdor.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +364,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0ACA41151AD9BDC400F9111D /* EditViewController.swift in Sources */,
 				0AA0E9411ADA85CB00257146 /* DBHelper.swift in Sources */,
 				0ACA41131AD9A83500F9111D /* Contact.swift in Sources */,
 				0ABEE89C1ADC8ED80035013D /* FMDatabase.m in Sources */,
@@ -631,6 +627,7 @@
 				0ABEE8C61ADC94920035013D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0ABEE8C71ADC94920035013D /* Build configuration list for PBXNativeTarget "ContactViewer2Tests" */ = {
 			isa = XCConfigurationList;
@@ -639,6 +636,7 @@
 				0ABEE8C91ADC94920035013D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0ACA40E61AD9A7D800F9111D /* Build configuration list for PBXProject "ContactViewer" */ = {
 			isa = XCConfigurationList;
