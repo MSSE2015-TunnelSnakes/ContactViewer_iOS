@@ -41,6 +41,23 @@ class MasterViewController: UITableViewController {
             self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
         }
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        var dbHelper = DBHelper()
+        dbHelper.setupDatabase()
+        var c = dbHelper.getContacts()
+        
+        if c.count != self.contacts.count {
+            // rebuild list
+            contacts.removeAll(keepCapacity: false)
+            for contact in c {
+                contacts.append(contact)
+            }
+        }
+        
+        self.tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -48,10 +65,6 @@ class MasterViewController: UITableViewController {
     }
 
     func insertNewObject(sender: AnyObject) {
-      //  let contact = Contact(name: "", phone: "", title: "", email: "", twitterId: "", newContact: true)
-      //  contacts.insert(contact, atIndex: 0)
-      //  let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-      //  self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         self.performSegueWithIdentifier("showDetail", sender: self)
     }
 
@@ -78,7 +91,6 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // TODO: create custom cell
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
 
         let object = contacts[indexPath.row] as Contact
@@ -103,7 +115,7 @@ class MasterViewController: UITableViewController {
             contacts.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+            // We add by going to the DetailViewController
         }
     }
 }

@@ -18,7 +18,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var editValuesBtn: UIButton!
     
     var _editMode = false
-    var _newContact = false
+    var _unsaveData = false
     var contact: Contact = Contact(name: "", phone: "", title: "", email: "", twitterId: "", newContact: true)
     
     var detailItem: AnyObject? {
@@ -52,20 +52,23 @@ class DetailViewController: UIViewController {
             if let twitterId = self.twitterIdTF {
                 twitterId.text = contact.twitterId
             }
-            
-            if contact.newContact {
-                _newContact = true
-                _editMode = true
-            }
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        if self.contact.newContact {
+            self._editMode = true;
+        }
+        
         self.configureView()
-        self.setupEditMode(false)
         self.configureSaveButton()
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.setupEditMode(self._editMode)
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,10 +83,23 @@ class DetailViewController: UIViewController {
     }
     
     func buttonClicked(sender: UIButton) {
-        NSLog("A button was clicked: \(sender).")
         if (_editMode) {
-            showOkayCancelAlert()
+           // Removed alert, its not really needed
+           // showOkayCancelAlert()
+            _editMode = false
+            self._unsaveData = false
+            self.contact.newContact = false;
+            self.contact.name = self.nameTF.text
+            self.contact.phone = self.phoneTF.text
+            self.contact.email = self.emailTF.text
+            self.contact.title = self.titleTF.text
+            self.contact.twitterId = self.twitterIdTF.text
+            var dbHelper = DBHelper()
+            dbHelper.addUpdateContact(self.contact)
+            self.setupEditMode(self._editMode)
+            
         } else {
+            _unsaveData = true
             _editMode = true
             setupEditMode(_editMode)
         }
@@ -97,6 +113,7 @@ class DetailViewController: UIViewController {
             self.titleTF.enabled = true
             self.emailTF.enabled = true
             self.twitterIdTF.enabled = true
+            _unsaveData = true
             
         } else {
             editValuesBtn.setTitle("Edit", forState: UIControlState.Normal)
@@ -107,39 +124,5 @@ class DetailViewController: UIViewController {
             self.twitterIdTF.enabled = false
         }
     }
-    
-    func saveUpdateContact() {
-    
-    }
-    
-    /// Show an alert with an "Save" and "Cancel" button.
-    func showOkayCancelAlert() {
-        let title = NSLocalizedString("Save Contact", comment: "")
-        let message = NSLocalizedString("Save your Contact?", comment: "")
-        let cancelButtonTitle = NSLocalizedString("Cancel", comment: "")
-        let otherButtonTitle = NSLocalizedString("Save", comment: "")
-        
-        let alertCotroller = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        
-        // Create the actions.
-        let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .Cancel) { action in
-            self.configureView()
-        }
-        
-        let otherAction = UIAlertAction(title: otherButtonTitle, style: .Default) { action in
-            var dbHelper = DBHelper()
-            dbHelper.addUpdateContact(self.contact)
-            self._editMode = false
-            self.setupEditMode(self._editMode)
-        }
-        
-        // Add the actions.
-        alertCotroller.addAction(cancelAction)
-        alertCotroller.addAction(otherAction)
-        
-        presentViewController(alertCotroller, animated: true, completion: nil)
-    }
-
-
 }
 
