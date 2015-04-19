@@ -16,14 +16,16 @@ class Contact: NSObject {
     var title:String
     var email:String
     var twitterId:String
+    var newContact:Bool // TODO: Remove
     
-    init(name:String, phone:String, title:String, email:String, twitterId:String) {
-        self.id = 0;
-        self.name = name;
-        self.phone = phone;
-        self.email = email;
-        self.title = title;
-        self.twitterId = twitterId;
+    init(name:String, phone:String, title:String, email:String, twitterId:String, newContact:Bool) {
+        self.id = 0
+        self.name = name
+        self.phone = phone
+        self.email = email
+        self.title = title
+        self.twitterId = twitterId
+        self.newContact = newContact
     }
     
     func updateId(id:Int32) {

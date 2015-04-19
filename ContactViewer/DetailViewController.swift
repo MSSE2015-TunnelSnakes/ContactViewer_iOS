@@ -18,7 +18,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var editValuesBtn: UIButton!
     
     var _editMode = false
-    var contact: Contact = Contact(name: "", phone: "", title: "", email: "", twitterId: "")
+    var _newContact = false
+    var contact: Contact = Contact(name: "", phone: "", title: "", email: "", twitterId: "", newContact: true)
     
     var detailItem: AnyObject? {
         didSet {
@@ -50,6 +51,11 @@ class DetailViewController: UIViewController {
             
             if let twitterId = self.twitterIdTF {
                 twitterId.text = contact.twitterId
+            }
+            
+            if contact.newContact {
+                _newContact = true
+                _editMode = true
             }
         }
     }
@@ -84,7 +90,6 @@ class DetailViewController: UIViewController {
     }
     
     func setupEditMode(editMode: Bool) {
-        
         if editMode {
             editValuesBtn.setTitle("Save", forState: UIControlState.Normal)
             self.nameTF.enabled = true
@@ -118,12 +123,10 @@ class DetailViewController: UIViewController {
         
         // Create the actions.
         let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .Cancel) { action in
-            NSLog("The \"Okay/Cancel\" alert's cancel action occured.")
             self.configureView()
         }
         
         let otherAction = UIAlertAction(title: otherButtonTitle, style: .Default) { action in
-            NSLog("The \"Okay/Cancel\" alert's other action occured.")
             var dbHelper = DBHelper()
             dbHelper.addUpdateContact(self.contact)
             self._editMode = false
