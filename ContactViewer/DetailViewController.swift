@@ -18,7 +18,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var editValuesBtn: UIButton!
     
     var _editMode = false
-
+    var contact: Contact = Contact(name: "", phone: "", title: "", email: "", twitterId: "")
+    
     var detailItem: AnyObject? {
         didSet {
             // Update the view.
@@ -29,7 +30,7 @@ class DetailViewController: UIViewController {
     func configureView() {
         // Update the user interface for the detail item.
         if let detail: AnyObject = self.detailItem {
-            let contact: Contact = detail as! Contact
+            contact = detail as! Contact
             
             if let name = self.nameTF {
                 name.text = contact.name
@@ -85,7 +86,7 @@ class DetailViewController: UIViewController {
     func setupEditMode(editMode: Bool) {
         
         if editMode {
-            editValuesBtn.setTitle("Done", forState: UIControlState.Normal)
+            editValuesBtn.setTitle("Save", forState: UIControlState.Normal)
             self.nameTF.enabled = true
             self.phoneTF.enabled = true
             self.titleTF.enabled = true
@@ -93,8 +94,7 @@ class DetailViewController: UIViewController {
             self.twitterIdTF.enabled = true
             
         } else {
-
-            editValuesBtn.setTitle("Save", forState: UIControlState.Normal)
+            editValuesBtn.setTitle("Edit", forState: UIControlState.Normal)
             self.nameTF.enabled = false
             self.phoneTF.enabled = false
             self.titleTF.enabled = false
@@ -125,11 +125,9 @@ class DetailViewController: UIViewController {
         let otherAction = UIAlertAction(title: otherButtonTitle, style: .Default) { action in
             NSLog("The \"Okay/Cancel\" alert's other action occured.")
             var dbHelper = DBHelper()
-            // TODO
-            //  dbHelper.addUpdateContact(<#contact: Contact#>)
+            dbHelper.addUpdateContact(self.contact)
             self._editMode = false
             self.setupEditMode(self._editMode)
-            
         }
         
         // Add the actions.

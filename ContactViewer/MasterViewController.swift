@@ -21,23 +21,12 @@ class MasterViewController: UITableViewController {
             self.preferredContentSize = CGSize(width: 320.0, height: 600.0)
         }
         
-        let contact1 = Contact(name: "Kevin", phone: "612-555-3829", title: "Software Engineer", email: "kevin@pichelman.com", twitterId: "kpichelman")
-        
-        let contact2 = Contact(name: "Billly Bob", phone: "443-555-4322", title: "Unemployeed", email: "bbob@aolonline.com", twitterId: "thereal_billybob")
-        
-        let contact3 = Contact(name: "Tucan Sam", phone: "221-555-9374", title: "Spokes Person", email: "tsam@generalmills.com", twitterId: "tucan")
-    
-        contacts.append(contact1)
-        contacts.append(contact2)
-        contacts.append(contact3)
-        
-        // TEMP Database testing code
         var dbHelper = DBHelper()
         dbHelper.setupDatabase()
-        dbHelper.addUpdateContact(contact1)
-        dbHelper.addUpdateContact(contact2)
-        dbHelper.addUpdateContact(contact3)
-        var temp = dbHelper.getContacts()
+        var c = dbHelper.getContacts()
+        for contact in c {
+            contacts.append(contact)
+        }
     }
 
     override func viewDidLoad() {
@@ -92,6 +81,7 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // TODO: create custom cell
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
 
         let object = contacts[indexPath.row] as Contact
@@ -110,7 +100,14 @@ class MasterViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
+            
+            let contact = contacts[indexPath.row] as Contact
+            var dbHelper = DBHelper( )
+            dbHelper.deleteContact(contact.id)
+            
             contacts.removeAtIndex(indexPath.row)
+            
+            
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

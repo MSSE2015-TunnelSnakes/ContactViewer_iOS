@@ -22,6 +22,21 @@ class DBHelper {
         }
         
         database.executeStatements("CREATE TABLE IF NOT EXISTS Contacts (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, phone TEXT, title TEXT, email TEXT, twitterId TEXT);")
+        
+        // If we are filling with dummy data do the following
+        
+        let contact1 = Contact(name: "Kevin", phone: "612-555-3829", title: "Software Engineer", email: "kevin@pichelman.com", twitterId: "kpichelman")
+        
+        let contact2 = Contact(name: "Billly Bob", phone: "443-555-4322", title: "Unemployeed", email: "bbob@aolonline.com", twitterId: "thereal_billybob")
+        
+        let contact3 = Contact(name: "Tucan Sam", phone: "221-555-9374", title: "Spokes Person", email: "tsam@generalmills.com", twitterId: "tucan")
+        
+        
+        addUpdateContact(contact1)
+        addUpdateContact(contact2)
+        addUpdateContact(contact3)
+        // End dummy data
+        
         database.close()
     }
     
